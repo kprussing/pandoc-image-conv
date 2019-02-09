@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+
+Import("env")
+
+root = "example"
+pdf = env.PDF(root + ".tex")
+svg = env.pdf2svg(pdf)
+png = env.pdf2png(pdf)
+png2 = env.svg2png(root + "-2.png", svg)
+svg2 = env.pdf2svg(root + "-2.svg", pdf)
+pdf2 = env.svg2pdf_tex(root + "-2.pdf", svg)
+
+for ext in (".tex", "html", ".docx"):
+    out = env.Pandoc(root + ".md" + ext, root + ".md")
+    if ext == ".tex":
+        _ = env.PDF(out)
+

@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+    \def\ang{30}
+    \def\rad{1.25}
+    \draw[thick, black, fill=yellow] (0,0) circle [radius=2];
+    \draw[ultra thick, black] (180+\ang:\rad) arc [radius=\rad,
+                                                   start angle=180+\ang,
+                                                   end angle=360-\ang];
+    \foreach \x in {-0.7, 0.7}
+        \fill[black] (\x, 0.7) ellipse [x radius=0.25, y radius=0.5];
+\end{tikzpicture}
