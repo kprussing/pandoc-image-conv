@@ -50,6 +50,9 @@ In a LaTeX output, you will find all SVG images converted to a
 ``\subimport`` with the appropriate output from Inkscape.  Similarly,
 you will find vector graphics converted to EMF in Word outputs.
 
+.. note:: This filter needs to be run *after* ``pandoc-citeproc`` and
+         ``pandoc-fignos`` for LaTeX output.  Those two filters need to
+         work on the unmodified image to resolve the image references.
 .. note:: This filter changes the image path in the AST.  You must
           ensure the correct format file exists or Pandoc will fail to
           build stand alone outputs.
